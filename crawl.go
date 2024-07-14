@@ -33,6 +33,13 @@ func main() {
 	printSortedLinks()
 }
 
+func normalizeURL(url string) string {
+	if strings.HasSuffix(url, "/") {
+		return strings.TrimSuffix(url, "/")
+	}
+	return url
+}
+
 func crawl(url string, depth int) {
 	if depth <= 0 || visited[url] {
 		return
@@ -67,9 +74,11 @@ func crawl(url string, depth int) {
 							link = url + link
 						}
 						if strings.HasPrefix(link, "http") {
-							// Add link to Set
-							linksSet[link] = struct{}{}
-							crawl(link, depth-1)
+							// Normalize URL
+							normalizedLink := normalizeURL(link)
+							// Add normalized link to set
+							linksSet[normalizedLink] = struct{}{}
+							crawl(normalizedLink, depth-1)
 						}
 					}
 				}

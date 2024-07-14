@@ -1,4 +1,4 @@
-Crawl fetches, sorts and outputs a list of url from the given one. It makes available content easy to find.
+Crawl fetches, sorts and outputs a list of unique URL from the given one. It makes available content easy to find.
 >Install binary. [more details](https://go.dev/doc/code).
 > Hint if you have a trouble:
 ```
@@ -22,10 +22,9 @@ crawl -url http://go.dev
 ```
 > output:
 ```
-http://go.dev/
-http://go.dev/blog
-http://go.dev/blog/
-http://go.dev/brand
+https://go.dev
+https://go.dev/blog
+https://go.dev/brand
 ...
 ```
 Additionally you could wrap it with torify.

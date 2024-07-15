@@ -93,6 +93,7 @@ func printSortedLinks() {
 		links = append(links, link)
 	}
 	sort.Strings(links)
+	fmt.Printf("Found %d unique links:\n", len(links))
 	for _, link := range links {
 		fmt.Println(link)
 	}
